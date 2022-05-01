@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+:root {
+  --bg-chat: #181a1b;
+  --bg-mess-ai: #0153cc;
+  --bg-mess-user: #1e2021;
+  --text-cl: #fff;
+}
+
+.chatbox-ctn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 8px;
+  background: url(../data/bg.jpg) no-repeat;
+  background-size: cover;
+}
+
+.chatbox {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 500px;
+  height: 100%;
+  background: var(--bg-chat);
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+  0 0 20px rgba(0, 0, 255, 0.4),
+  0 0 30px rgba(0, 255, 0, 0.3),
+  0 0 40px rgba(255, 0, 0, 0.2),
+  0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+.chatbox::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  filter: hue-rotate(360deg);
+}
+
+/* HEADER */
+.chatbox header {
+  display: flex;
+  position: absolute;
+  inset: 0 0 auto 0;
+  align-items: center;
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background: linear-gradient(90deg, #0976b3, #0b408d);
+  padding: 16px;
+  max-height: 15%;
+  z-index: 9;
+}
+
+.chatbox header h4 {
+  color: var(--text-cl);
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  width: 100%;
+}
+
+.chatbox header h4 #name-user {
+  text-transform: uppercase;
+}
+
+.chatbox .close-chat {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.chatbox #header:checked ~ header {
+  visibility: hidden;
+  background: transparent;
+}
+
+/* MESSAGE */
+.chatbox .list-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 65px 32px 8px;
+}
+
+.chatbox .list-chat::-webkit-scrollbar {
+  display: none;
+}
+
+.chatbox .list-chat .chat-user,
+.chatbox .list-chat .chat-ai {
+  margin-top: 32px;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 16px;
+  max-width: 80%;
+  position: relative;
+  color: var(--text-cl);
+  background: var(--bg-mess-ai);
+  box-shadow: 1px 2px 4px #000;
+}
+
+.chatbox .list-chat .chat-ai {
+  margin-right: auto;
+}
+
+.chatbox .list-chat .chat-ai .avatar-AI {
+  position: absolute;
+  top: -19px;
+  left: -19px;
+  padding: 19px;
+  border-radius: 50%;
+  background: var(--bg-chat);
+  overflow: hidden;
+}
+
+.chatbox .list-chat .chat-ai .avatar-AI::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: url(../data/robot.jpg);
+  background-size: cover;
+}
+
+.chatbox .list-chat .chat-user {
+  margin-left: auto;
+  background: var(--bg-mess-user);
+  border-top-right-radius: 0;
+}
+
+/* FOOTER */
+.chatbox footer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-height: 15%;
+  background: linear-gradient(90deg, #0976b3, #0b408d);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  overflow: hidden;
+}
+
+.chatbox footer .mess-text {
+  flex: 1;
+  max-width: 80%;
+  padding: 16px 8px;
+  position: relative;
+}
+
+.chatbox footer .mess-text ion-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  transform: translate(calc(-50% + 8px), -50%);
+  padding: 9.5px 8px;
+  background: #d2504d;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: var(--text-cl);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#new-mess {
+  width: 100%;
+  border-radius: 16px;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+  0 0 12px rgba(0, 0, 0, 0.5),
+  0 0 24px rgba(255, 255, 255, 0.3);
+}
+
+.chatbox footer .mess-mic {
+  min-width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 32px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.chatbox footer .mess-mic ion-icon {
+  background-color: rgb(228, 67, 67);
+  border-radius: 50%;
+  padding: 8px;
+  color: #fff;
+  position: relative;
+}
+
+.chatbox footer .mess-mic ion-icon:hover {
+  opacity: .8;
+}
+
+.chatbox footer .mess-mic span {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.chatbox footer .mess-mic.active span {
+  background-image: radial-gradient(transparent, rgba(255, 38, 38, .5));
+  animation: 1.6s onmic ease-out calc(.8s*var(--i)) infinite;
+}
+
+@keyframes onmic {
+  0% {
+    width: 48px;
+    height: 48px;
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+  }
+}

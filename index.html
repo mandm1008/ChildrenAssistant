@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi-VI">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./data/robot_nobg.png" type="image/x-icon">
+  <title>Children's assistant</title>
+  <link rel="stylesheet" href="./css/chatbox.css">
+  <link rel="stylesheet" href="./css/started.css">
+  <link rel="stylesheet" href="./css/getdata.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <script type="module" src="./js/main.js" defer></script>
+</head>
+
+<body>
+  <div class="start">
+    <div>
+      <span></span><span></span><span></span><span></span>
+      <h1>Start</h1>
+    </div>
+  </div>
+
+  <div class="getdata-ctn" style="display: none;">
+    <div class="getdata">
+      <label for="name">Tên bạn là gì nè?</label>
+      <input id="name" type="text" placeholder="Nhập tên...">
+      <label for="year">Bạn bao nhiêu tuổi rồi?</label>
+      <input id="year" type="text" placeholder="10...">
+      <label for="phone">Số điện thoại người thân bạn là gì?</label>
+      <input id="phone" type="text" placeholder="0...">
+      <div class="loca">
+        <p>Nhà bạn có phải ở ngay đây không?</p>
+        <input name="loca" type="radio" id="yes" checked>
+        <label for="yes">Phải</label>
+        <input name="loca" type="radio" id="no">
+        <label for="no">Không phải</label>
+        <div class="customLocation">
+          <label for="location">Vậy địa chỉ ở đâu vậy?</label>
+          <input type="text" id="location" placeholder="xã... huyện... tỉnh...">
+        </div>
+      </div>
+      <button type="submit" class="submit">Gửi</button>
+    </div>
+  </div>
+
+  <div class="chatbox-ctn">
+    <div class="chatbox">
+
+      <input type="checkbox" id="header" hidden>
+      <header>
+        <h4>Xin chào!
+          <span id="name-user">Bạn</span>
+          <label for="header" class="close-chat">&times;</label>
+        </h4>
+      </header>
+
+      <div class="list-chat">
+
+        <!-- <div class="chat-ai">
+          <div class="avatar-AI"></div>
+          <span>Tôi là AI JavaScript!</span>
+        </div>
+
+        <div class="chat-user">
+          <span>Bạn là ai?</span>
+        </div> -->
+
+      </div>
+
+      <footer>
+        <div class="mess-text">
+          <input type="text" id="new-mess" placeholder="Tin nhắn...">
+          <ion-icon name="send-outline"></ion-icon>
+        </div>
+        <div class="mess-mic">
+          <ion-icon name="mic-outline"></ion-icon>
+          <span style="--i:1"></span>
+          <span id="mic-icon" style="--i:2"></span>
+        </div>
+      </footer>
+
+    </div>
+    <a href="" id="smsPhone" style="display: none;">Gửi vị trí</a>
+    <a href="" id="callPhone"></a>
+  </div>
+
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=LtatDjBN"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

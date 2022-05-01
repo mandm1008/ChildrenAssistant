@@ -1,0 +1,77 @@
+.getdata-ctn {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9;
+}
+
+.getdata {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-mess-ai);
+  padding: 24px 20px;
+  border-radius: 16px;
+}
+
+.getdata label {
+  margin: 16px 0 8px 0;
+  color: var(--text-cl);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.getdata input:not([type="radio"]) {
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+}
+
+.getdata input[type="radio"] {
+  cursor: pointer;
+}
+
+.getdata label:first-child {
+  margin-top: 0;
+}
+
+.getdata .loca {
+  color: var(--text-cl);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.getdata .loca p {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.getdata .loca .customLocation {
+  display: none;
+  margin-top: 16px;
+}
+
+.customLocation label {
+  display: block;
+}
+
+.getdata .loca input#no:checked ~ .customLocation {
+  display: block;
+}
+
+.getdata button {
+  margin-top: 16px;
+  background: #7fc600;
+  padding: 12px;
+  color: var(--text-cl);
+  border: none;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
